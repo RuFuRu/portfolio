@@ -1,0 +1,272 @@
+@use 'vars' as *;
+@use 'cursor';
+@use 'scrollbar';
+@use 'scrollFurther';
+@use 'mediaQueries';
+
+body {
+    //width: 100vw;
+    //height: 100vh;
+    background: $bg-gradient;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    .intro-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 1rem;
+    }
+    .intro {
+        height: 50%;
+        margin-left: 5rem;
+        h1 {
+            font-size: clamp(5rem, calc(5rem + 10vw), 15rem);
+            color: $whiteish;
+        }
+        p {
+            color: $whiteish;
+            font-size: clamp(0.5rem, calc(0.5rem + 10vw), 1.5rem);
+            margin-left: 1rem;
+            span {
+                color: $matt-blue;
+                font-weight: 600;
+            }
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 1rem;
+            margin-left: 1rem;
+            .github-icon {
+                @include rotateIcon(200ms, ease-in);
+            }
+            .linkedin-icon {
+                @include rotateIcon(200ms, ease-in);
+            }
+        }
+        .intro-btn {
+            display: flex;
+            //justify-content: center;
+            gap: 30px;
+            margin-top: 1.2rem;
+            margin-left: 0.5rem;
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            button {
+                padding: 1rem;
+                border-radius: 30px;
+                @include btnWithGradientBorder($whiteish, 5px, solid, $cursor-gradient);
+                color: $matt-blue;
+                font-weight: 600;
+                font-size: clamp(0.5rem, calc(0.5rem + 10vw), 1rem);
+                transition: all 200ms ease-in;
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }
+        }
+    }
+    .img {
+        justify-self: center;
+        align-self: center;
+        @include rotateIcon(200ms, ease-out);
+    }
+}
+
+
+.projects {
+    margin-top: 20rem;
+    h2 {
+        text-align: center;
+        font-size: clamp(2rem, calc(2rem + 10vw), 8rem);
+        color: $whiteish;
+    }
+    .projects-grid {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, 300px);
+        gap: 100px;
+        text-align: center;
+        margin-top: 5rem;
+        .projects-grid-item-container {
+            position: relative;
+            display: grid;
+            min-width: 300px;
+            grid-template-rows: 1fr 3fr;
+            h3 {
+                font-size: 1.5rem;
+                color: $matt-blue;
+                justify-self: center;
+                align-self: center;
+            }
+            img {
+                justify-self: center;
+                object-fit: cover;
+            }
+            button {
+                @include btnWithGradientBorder($whiteish, 5px, solid, $cursor-gradient);
+                padding: 0.5rem;
+                border-radius: 30px;
+                color: $matt-blue;
+                font-weight: 600;
+                font-size: 1rem;
+                font-style: 'Poppins', sans-serif;
+                transition: all 200ms ease-in;
+                margin-top: 0.5rem;
+                cursor: pointer;
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }
+        }
+        .projects-grid-ref-links {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .projects-overlay {
+            position: absolute;
+            height: 20%;
+            width: 100%;
+            background-color: black;
+            opacity: 0.9;
+            top: 68.5%;
+            display: none;
+            pointer-events: none;
+            transition: all 200ms ease-in-out;
+            p:nth-child(1) {
+                color: $whiteish;
+                background-color: $matt-pink;
+            }
+            p:nth-child(2) {
+                text-align: left;
+                color: $whiteish;
+            }
+        }
+    }
+    .projects-github-ref {
+        h3 {
+            font-size: clamp(0.5rem, calc(0.5rem + 10vw), 3rem);
+            color: $matt-blue;
+            text-align: center;
+            margin-top: 2rem;
+            img {
+                @include rotateIcon(200ms, ease-in);
+            }
+        }
+    }
+}
+
+.technologies {
+    margin-top: 20rem;
+    h2 {
+        text-align: center;
+        font-size: clamp(0.5rem, calc(0.5rem + 10vw), 8rem);
+        color: $whiteish;
+    }
+    .technologies-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 300px);
+        gap: 50px;
+        margin-top: 3rem;
+        div {
+            display: flex;
+            justify-content: center;
+        }
+        img {
+            max-width: 200px;
+            max-height: 200px;
+            transition: all 200ms ease-in;
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+.contact-me {
+    margin-top: 20rem;
+    h2 {
+        text-align: center;
+        font-size: clamp(1rem, calc(1rem + 10vw), 8rem);;
+        color: $whiteish;
+    }
+    form {
+        width: clamp(300px, 50%, 1200px);
+        margin: auto;
+        div {
+            margin-bottom: 1.5rem;
+            label {
+                text-align: center;
+                font-size: 2rem;
+                color: $whiteish;
+                font-weight: 600;
+            }
+            input {
+                width: 300px;
+                padding: 0.2rem;
+                font-size: 1.1rem;
+                border-radius: 5px;
+                border-image: $cursor-gradient;
+                border-width: 3px;
+                border-image-slice: 1;
+                margin: 0 auto;
+                outline: none;
+            }
+            textarea {
+                resize: none;
+                padding: 0.5rem;
+                font-size: 1.1rem;
+                font-weight: 600;
+                font-family: 'Poppins', sans-serif;
+                border-radius: 5px;
+                border-image: $cursor-gradient;
+                border-width: 3px;
+                border-image-slice: 1;
+                outline: none;
+            }
+            button {
+                @include btnWithGradientBorder($whiteish, 5px, solid, $cursor-gradient);
+                padding: 0.5rem;
+                border-radius: 30px;
+                color: $matt-blue;
+                font-weight: 600;
+                font-size: 1rem;
+                font-style: 'Poppins', sans-serif;
+                width: 200px;
+                margin: 0 auto;
+                transition: all 200ms ease-in;
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    .contact-me-para-container {
+        display: flex;
+        justify-content: center;
+        p {
+            text-align: center;
+            font-size: 3rem;
+            color: $matt-blue;
+            margin-top: 2rem;
+            font-weight: 600;
+            a {
+                position: relative;
+                height: 48px;
+                top: 3px;
+                img {
+                    @include rotateIcon(200ms, ease-in);
+                }
+            }
+        }
+    }
+}
+
+footer {
+    margin-top: 4rem;
+}

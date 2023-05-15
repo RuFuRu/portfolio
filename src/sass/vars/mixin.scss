@@ -1,0 +1,14 @@
+@mixin rotateIcon($time, $type) {
+    transition: all $time $type;
+    &:hover {
+        transform: rotate(45deg);
+    }
+}
+
+@mixin btnWithGradientBorder($bgc, $borderSize, $borderStyle, $borderColour) {
+    background-color: transparent;
+    border: $borderSize $borderStyle transparent;
+    background-image: $borderColour;
+    background-origin: border-box;
+    box-shadow: 2px 1000px 1px $bgc inset;
+}

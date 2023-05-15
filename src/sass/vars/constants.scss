@@ -1,0 +1,16 @@
+$matt-pink: hsl(348, 79%, 81%);
+$gradient-pink2: hsl(328, 100%, 85%);
+$gradient-pink3: hsl(300, 100%, 87%);
+$gradient-pink4: hsl(288, 100%, 91%);
+
+$whiteish: hsl(340, 100%, 98%);
+
+$matt-blue: hsl(196, 94%, 67%); 
+$gradient-blue2: hsl(186, 88%, 59%);
+$gradient-blue3: hsl(173, 83%, 62%);
+$gradient-blue4: hsl(149, 91%, 75%);
+
+$greenish: #75A1FA;
+
+$bg-gradient: linear-gradient(180deg, $matt-pink 0%, $gradient-pink2 25%, $gradient-pink3 50%, $gradient-pink4 72%);
+$cursor-gradient: linear-gradient(180deg, $matt-blue 0%, $gradient-blue2 31%, $gradient-blue3 60%, $gradient-blue4 83%);

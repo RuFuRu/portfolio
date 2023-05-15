@@ -1,0 +1,28 @@
+@use './vars' as *;
+
+.cursor-circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+
+.cursor-circle:nth-child(1), .cursor-circle:nth-child(2) {
+    background-color: $matt-blue;
+    z-index: 5;
+}
+.cursor-circle:nth-child(3), .cursor-circle:nth-child(4) {
+    background-color: $gradient-blue2;
+    z-index: 4;
+}
+.cursor-circle:nth-child(5), .cursor-circle:nth-child(6) {
+    background-color: $gradient-blue3;
+    z-index: 3;
+}
+.cursor-circle:nth-child(7), .cursor-circle:nth-child(8) {
+    background-color: $gradient-blue4;
+    z-index: 2;
+}

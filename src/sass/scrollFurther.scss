@@ -1,0 +1,65 @@
+@use 'vars' as *;
+
+.scroll-further {
+    pointer-events: none;
+    position: fixed;
+    height: 70px;
+    width: 50px;
+    border: 4px solid $whiteish;
+    top: 88%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    padding: 0.5rem;
+    animation: scroll-div-animation 1s ease-in-out infinite;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        height: 20px;
+        width: 20px;
+        transform: translate(-50%, -100%) rotate(45deg);
+        border: 3px solid $whiteish;
+        border-top: transparent;
+        border-left: transparent;
+        animation: scroll-arrows-animation 1s ease-in-out infinite;
+    }
+    &::after {
+        top: 50%;
+        animation-delay: 0.4s;
+    }
+}
+
+.scroll-further.inactive {
+    display: none;
+}
+
+@keyframes scroll-div-animation {
+    0% {
+        top: 87%;
+    }
+    50% {
+        top: 88%;
+    }
+    100% {
+        top: 87%;
+    }
+}
+
+@keyframes scroll-arrows-animation {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        top: 90%;
+    }
+}

@@ -1,0 +1,42 @@
+@use 'vars';
+
+@media(max-width: 1100px) {
+    header {
+        .intro-grid {
+            grid-template-columns: 1fr !important;
+            grid-template-rows: 1fr 1fr;
+            text-align: center;
+        }
+        .social-icons {
+            justify-content: center;
+        }
+        .intro-btn {
+            justify-content: center;
+        }
+    }
+}
+
+@media(max-width: 700px) {
+    header {
+        .intro {
+            margin-left: 0 !important;
+        }
+    }
+}
+
+@media(max-width: 400px) {
+    header {
+        .intro-btn {
+            button {
+                font-size: 0.7rem !important;
+                padding: 0.7rem 0.2rem !important;
+            }
+        }
+        .img {
+            img {
+                width: 320px;
+                height: 320px;
+            }
+        }
+    }
+}
