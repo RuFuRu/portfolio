@@ -72,7 +72,7 @@ header {
     .img {
         justify-self: center;
         align-self: center;
-        @include rotateIcon(200ms, ease-out);
+        // @include rotateIcon(200ms, ease-out);
     }
 }
 
@@ -179,9 +179,11 @@ header {
             max-width: 200px;
             max-height: 200px;
             transition: all 200ms ease-in;
+            /*
             &:hover {
                 transform: scale(1.2);
             }
+            */
         }
     }
 }
